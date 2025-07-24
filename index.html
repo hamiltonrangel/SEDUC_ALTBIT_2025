@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!-- Declaração do tipo de documento HTML5 -->
 <html lang="pt-br">
 <!-- Início do documento HTML com idioma português brasileiro -->
@@ -21,85 +21,8 @@
       height: 100%;       /* Define altura como 100% da tela */
       width: 100%;        /* Define largura como 100% da tela */
       font-family: Arial, sans-serif;  /* Define fonte padrão */
-      
+      background-color: #f9f9f9;       /* Cor de fundo cinza claro */
     }
-
-    /* ========== NOVA SEÇÃO: ESTILIZAÇÃO DO CABEÇALHO COM IMAGEM ========== */
-    /* 
-    //
-    INSTRUÇÕES PARA ADICIONAR A IMAGEM:
-    1. Salve sua imagem na mesma pasta do arquivo HTML
-    2. Substitua "sua-imagem.jpg" pelo nome real do seu arquivo de imagem
-    3. Formatos suportados: .jpg, .jpeg, .png, .gif, .webp
-    4. Recomendado: imagem com largura mínima de 1200px para boa qualidade
-    */
-    .header-image {
-      width: 100%;              /* Largura total da tela */
-      height: 200px;            /* Altura fixa de 200px - AJUSTE CONFORME NECESSÁRIO */
-      background-image: url('SEDUC.jpg');  /* SUBSTITUA 'sua-imagem.jpg' pelo nome da sua imagem */
-      background-size: cover;   /* Redimensiona a imagem para cobrir toda a área */
-      background-position: center center;  /* Centraliza a imagem */
-      background-repeat: no-repeat;  /* Evita repetição da imagem */
-      display: flex;            /* Usa flexbox para centralizar conteúdo */
-      align-items: center;      /* Centraliza verticalmente */
-      justify-content: center;  /* Centraliza horizontalmente */
-      position: relative;       /* Permite posicionamento de elementos filhos */
-      margin-bottom: 20px;      /* Espaço entre a imagem e o conteúdo abaixo */
-    }
-
-    /* 
-    OPCIONAL: Overlay escuro sobre a imagem para melhor legibilidade do texto
-    Remova este bloco se não quiser o efeito de sobreposição
-    */
-    .header-image::before {
-      content: '';              /* Cria um pseudo-elemento */
-      position: absolute;       /* Posicionamento absoluto */
-      top: 0;                   /* Alinha ao topo */
-      left: 0;                  /* Alinha à esquerda */
-      right: 0;                 /* Alinha à direita */
-      bottom: 0;                /* Alinha ao fundo */
-      background-color: rgba(0, 0, 0, 0.3);  /* Sobreposição preta com 30% de opacidade */
-      z-index: 1;               /* Fica atrás do texto */
-    }
-
-    /* 
-    OPCIONAL: Texto sobre a imagem
-    Remova este bloco se não quiser texto sobre a imagem
-    */
-    .header-text {
-      color: white;             /* Cor do texto branca */
-      font-size: 28px;          /* Tamanho da fonte - AJUSTE CONFORME NECESSÁRIO */
-      font-weight: bold;        /* Texto em negrito */
-      text-align: center;       /* Centraliza o texto */
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);  /* Sombra no texto para melhor legibilidade */
-      z-index: 2;               /* Fica acima da sobreposição */
-      position: relative;       /* Necessário para o z-index funcionar */
-      padding: 0 20px;          /* Espaçamento lateral para textos longos */
-    }
-
-    /* 
-    RESPONSIVIDADE: Ajustes para dispositivos móveis
-    */
-    @media (max-width: 768px) {
-      .header-image {
-        height: 150px;          /* Altura menor em dispositivos móveis */
-      }
-      
-      .header-text {
-        font-size: 20px;        /* Fonte menor em dispositivos móveis */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header-image {
-        height: 120px;          /* Altura ainda menor em telas muito pequenas */
-      }
-      
-      .header-text {
-        font-size: 16px;        /* Fonte ainda menor em telas muito pequenas */
-      }
-    }
-    /* ========== FIM DA NOVA SEÇÃO ========== */
 
     /* Estilização do título principal */
     h2 {
@@ -240,19 +163,6 @@
 </head>
 <body>
   <!-- Início do corpo da página -->
-  
-  <!-- ========== NOVA SEÇÃO: CABEÇALHO COM IMAGEM ========== -->
-  <!-- 
-  INSTRUÇÕES PARA PERSONALIZAR:
-  1. Para alterar a imagem: modifique o CSS da classe .header-image (linha ~35)
-  2. Para alterar o texto: modifique o conteúdo dentro da div .header-text
-  3. Para remover o texto: delete toda a div com class="header-text"
-  4. Para remover a sobreposição escura: delete o CSS .header-image::before
-  -->
-   <div class="header-image">
-    
-  </div>
-  <!-- ========== FIM DA NOVA SEÇÃO ========== -->
   
   <!-- Título principal da página -->
   <h2>Cadastro de Equipamento</h2>
@@ -595,4 +505,3 @@
 </body>
 </html>
 <!-- Fim do documento HTML -->
-
