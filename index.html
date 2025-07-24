@@ -196,6 +196,13 @@
       </select>
     </label>
 
+    <!-- Campo de seleção para escola -->
+    <label>Escola:
+      <select name="escola" id="escola" required>
+        <option value="">Selecione</option>
+      </select>
+    </label>
+
     <!-- Botão para enviar o formulário -->
     <button type="submit">Enviar</button>
     
@@ -233,7 +240,91 @@
     // Variáveis globais para armazenar dados na sessão atual
     let contadorCadastros = 0;  // Contador que zera ao recarregar a página
     let listaCadastros = [];    // Array para armazenar todos os cadastros da sessão
-    
+
+    // Lista de escolas
+    const escolas = [
+      "Creche Diva Bernardino",
+      "EMEI Mundo Encantado",
+      "EM Profª Joana Alves dos Reis",
+      "EM Profª Cynthia Cliquet Luciano",
+      "Creche da Enseada (Maria Leonarda da Costa)",
+      "EM Solange de Paula",
+      "EMEI Pônei Azul",
+      "EM Profª Maria Alice Rangel",
+      "EMEI Elefante Colorido",
+      "Creche Débora Tavares Bahia",
+      "Berçário Amigos da Criança",
+      "EMEI Luciana da Silveira Gonçalves Chapeuzinho Vermelho",
+      "Creche Dona Laurinda",
+      "EMEI Sebastião Leme da Silva Pingo de Gente",
+      "EM Profº Walfrido Maciel Monteiro",
+      "EMEI Iraydes Lobo Viana do Rego Algodão Doce",
+      "Creche Semírames Tavolaro Passos",
+      "EM Profª Maria Francisca Santana de Moura Tavolaro",
+      "EM Profº Dr. José Machado Rosa",
+      "EMEI Profª Emília Pinder Peteleco",
+      "EM Henrique Botelho",
+      "Creche São Sebastião",
+      "Berçário Santana II",
+      "Creche Maria Fernanda Moraes Mendes",
+      "Creche Adriana Vasques Fernandes (Berçário Santana I)",
+      "Creche e EMEI Meire Vasques dos Santos",
+      "EMEI Profª Teresa Mota Santos Reino da Alegria",
+      "EM Profª Verena de Oliveira Dória",
+      "EM Profª Iraydes Lobo Vianna do Rego",
+      "EM Profª Patrícia Viviani Santana",
+      "Creche Eugênia Andrada Abreu",
+      "Creche de Barequeçaba",
+      "EM de Barequeçaba",
+      "EMEI Arco-Íris",
+      "EM Profª Luiza Helena de Barros",
+      "EM Profº João Gabriel de Sant'Ana",
+      "EMEI Bolinha de Sabão",
+      "Creche de Maresias",
+      "Creche Gabriel Almeida Teixeira Lobo",
+      "EMEI Arlete Nascimento Moura",
+      "EM Profª Edilleusa Brasil Soares de Souza",
+      "Creche de Boiçucanga I",
+      "Creche de Boiçucanga Unidade II",
+      "EMEI Gilmar Furtado de Oliveira Alegria das Crianças",
+      "EM Profª Guiomar Aparecida da Conceição Souza",
+      "EM Profº Antonio Luiz Monteiro",
+      "Creche de Camburi",
+      "EM de Camburi",
+      "EMEI Profº Lino Marques Vicente Sementinha",
+      "EM Mathew Lucca Carmo Damasceno",
+      "EM Maria da Conceição de Deus Santos",
+      "EMEI Cavalinho de Pau",
+      "Creche da Barra do Sahy",
+      "EM Henrique Tavares de Jesus",
+      "EMEI Sonho de Criança",
+      "Creche de Juquehy I",
+      "Creche Leonardo de Jesus Santos",
+      "Creche de Juquehy Unidade 3",
+      "EMEI Profº Manoel Ferreira Matos Branca de Neve",
+      "EM Profª Nair Ribeiro de Almeida",
+      "Creche Gabriela Silva Oliveira dos Santos",
+      "EM Profª Maria Virgínia Silva",
+      "EMEI Pir Lim Pim Pim",
+      "EM Profª Sebastiana Costa Bittencourt",
+      "Creche Peraltinha",
+      "EM Profª Vilma Aparecida de Almeida Ribas",
+      "EMEI Carrossel"
+    ];
+
+    /**
+     * Função para popular o combobox de escolas
+     */
+    function popularEscolas() {
+      const selectEscola = document.getElementById('escola');
+      escolas.forEach(escola => {
+        const option = document.createElement('option');
+        option.value = escola;
+        option.textContent = escola;
+        selectEscola.appendChild(option);
+      });
+    }
+
     /**
      * Função para atualizar a exibição do contador na tela
      * Atualiza o texto do contador e mostra/oculta a seção de informações
@@ -275,6 +366,7 @@
               <strong>Patrimônio:</strong> ${cadastro.patrimonio} | 
               <strong>Equipamento:</strong> ${cadastro.equipamento} | 
               <strong>Secretaria:</strong> ${cadastro.secretaria} | 
+              <strong>Escola:</strong> ${cadastro.escola} | 
               <strong>Data/Hora:</strong> ${dataHora}
             </div>
           `;
@@ -334,6 +426,7 @@
       // Atualiza as exibições iniciais (contador zerado e lista vazia)
       atualizarContador();
       atualizarListaCadastros();
+      popularEscolas(); // Popula o combobox de escolas
       
       // Foca automaticamente no campo patrimônio
       document.getElementById('patrimonio').focus();
@@ -355,9 +448,10 @@
 
       // Captura os dados do formulário antes do envio para armazenar localmente
       const dadosCadastro = {
-        patrimonio: document.getElementById('patrimonio').value,
-        equipamento: document.getElementById('equipamento').value,
-        secretaria: document.getElementById('secretaria').value,
+        patrimonio: document.getElementById("patrimonio").value,
+        equipamento: document.getElementById("equipamento").value,
+        secretaria: document.getElementById("secretaria").value,
+        escola: document.getElementById("escola").value,
         timestamp: new Date().toISOString()  // Timestamp atual em formato ISO
       };
 
@@ -410,4 +504,3 @@
 </body>
 </html>
 <!-- Fim do documento HTML -->
-
