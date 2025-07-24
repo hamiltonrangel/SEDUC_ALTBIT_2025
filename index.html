@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!-- Declaração do tipo de documento HTML5 -->
 <html lang="pt-br">
 <!-- Início do documento HTML com idioma português brasileiro -->
@@ -24,20 +24,10 @@
       background-color: #f9f9f9;       /* Cor de fundo cinza claro */
     }
 
-  
     /* Estilização do título principal */
     h2 {
       text-align: center;  /* Centraliza o texto */
       margin: 20px 0;      /* Margem superior e inferior de 20px */
-    }
-
-    /* Estilização da imagem de cabeçalho */
-    .header-image {
-      display: block; /* Garante que a imagem ocupe sua própria linha */
-      margin: 0 auto; /* Centraliza a imagem horizontalmente */
-      max-width: 100%; /* Garante que a imagem seja responsiva e não exceda a largura do contêiner */
-      height: auto; /* Mantém a proporção da imagem */
-      padding-bottom: 20px; /* Adiciona um espaçamento abaixo da imagem */
     }
 
     /* Estilização do formulário */
@@ -162,16 +152,70 @@
     /* Estilização do número do cadastro */
     .cadastro-numero {
       background-color: #4CAF50;  /* Fundo verde */
-      color: white;     </style>
+      color: white;        /* Texto branco */
+      padding: 2px 6px;    /* Espaçamento interno pequeno */
+      border-radius: 3px;  /* Bordas arredondadas */
+      font-size: 12px;     /* Fonte menor */
+      font-weight: bold;   /* Texto em negrito */
+      margin-right: 8px;   /* Margem direita para separar do texto */
+    }
+  </style>
 </head>
 <body>
   <!-- Início do corpo da página -->
-  <img src="Captura de tela 2025-07-24 142947.png" alt="Cabeçalho" class="header-image">
+  
   <!-- Título principal da página -->
   <h2>Cadastro de Equipamento</h2>
 
   <!-- Formulário de cadastro -->
-  <form id="formulario">ntador">
+  <form id="formulario">
+    <!-- Campo para número do patrimônio -->
+    <label>Patrimônio:
+      <input type="text" name="patrimonio" id="patrimonio" required>
+      <!-- required: torna o campo obrigatório -->
+    </label>
+
+    <!-- Campo de seleção para tipo de equipamento -->
+    <label>Equipamento:
+      <select name="equipamento" id="equipamento" required>
+        <option value="">Selecione</option>  <!-- Opção padrão vazia -->
+        <option value="Mini-PC">Mini-PC</option>
+        <option value="Desktop">Desktop</option>
+        <option value="Notebook">Notebook</option>
+        <option value="Monitor">Monitor</option>
+      </select>
+    </label>
+
+    <!-- Campo de seleção para secretaria -->
+    <label>Secretaria:
+      <select name="secretaria" id="secretaria" required>
+        <option value="">Selecione</option>  <!-- Opção padrão vazia -->
+        <option value="SEDUC">SEDUC</option>
+        <option value="SESAU">SESAU</option>
+        <option value="SEPLAN">SEPLAN</option>
+      </select>
+    </label>
+
+    <!-- Campo de seleção para escola -->
+    <label>Escola:
+      <select name="escola" id="escola" required>
+        <option value="">Selecione</option>
+      </select>
+    </label>
+
+    <!-- Botão para enviar o formulário -->
+    <button type="submit">Enviar</button>
+    
+    <!-- Botão para limpar o formulário e contador -->
+    <button type="button" class="btn-limpar" id="btnLimpar">Limpar Formulário e Contador</button>
+    <!-- type="button": impede que o botão envie o formulário -->
+  </form>
+  
+  <!-- Seção de informações (contador, status e lista de cadastros) -->
+  <!-- Inicialmente oculta, só aparece após o primeiro cadastro -->
+  <div class="info-section" id="infoSection" style="display: none;">
+    <!-- Contador de cadastros -->
+    <div class="contador" id="contador">
       Total de Cadastros: 0
     </div>
     
